@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaApp.Pages.Auth.LoginUC">
+    <StackPanel VerticalAlignment="Center" Width="200" Spacing="10" Background="White">
+        <TextBox Margin="10" PlaceholderText="Логин"></TextBox>
+        <TextBox Margin="10" PlaceholderText="Пароль"></TextBox>
+        <Button Margin="10" Background="Brown" Click="LoginBtn" Content="Войти"  Width="200" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Button>
+    </StackPanel>
+</UserControl>
