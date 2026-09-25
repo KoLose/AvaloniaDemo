@@ -4,5 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AvaloniaApp.Pages.ClientPage.ClientUC.RequestUC">
-    Welcome to Avalonia!
+    <Grid RowDefinitions="Auto,*" Background="DarkGray">
+        <StackPanel Orientation="Horizontal" Margin="10,10,10,0" Spacing="10">
+            <TextBlock Text="Серийный номер:" VerticalAlignment="Center"/>
+            <TextBox x:Name="ArticleSearchBox"
+                     Width="200"
+                     Watermark="Поиск..." Foreground="Black"
+                     TextChanged="ArticleSearchBox_OnTextChanged"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1"
+                  x:Name="ItemsGrid"
+                  Margin="10"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False"
+                  ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
+                <DataGridTextColumn Header="Серийный номер" Binding="{Binding SerialNumber}" Width="160"/>
+                <DataGridTextColumn Header="Тип" Binding="{Binding TypeNavigation.Name}" Width="75"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </UserControl>

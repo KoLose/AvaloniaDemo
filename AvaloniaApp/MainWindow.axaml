@@ -10,7 +10,7 @@
                 <Border Grid.Row="0" Background="Brown" Height="50">
                         <TextBlock>Крутое приложение</TextBlock>
                 </Border>
-                <Border Grid.Row="1" Background="Bisque">
+                <Border Grid.Row="1" Background="DarkGray">
                         <ContentControl x:Name="MainContent"/>
                 </Border>
         </Grid>

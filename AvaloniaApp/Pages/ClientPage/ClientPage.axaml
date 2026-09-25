@@ -12,7 +12,7 @@
                 <Button Click="Get" Foreground="White">Посмотреть заявки</Button>
             </StackPanel>
         </Border>
-        <Border Grid.Row="1" Background="Bisque">
+        <Border Grid.Row="1" Background="DarkGray">
             <ContentControl x:Name="MainContent"/>
         </Border>
     </Grid>

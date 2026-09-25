@@ -203,3 +203,4 @@
 /Users/kolose/Development/AvaloniaProjects/ExamProb/AvaloniaApp/AvaloniaApp/bin/Debug/net10.0/runtimes/win/lib/net9.0/System.Diagnostics.EventLog.dll
 /Users/kolose/Development/AvaloniaProjects/ExamProb/AvaloniaApp/AvaloniaApp/bin/Debug/net10.0/runtimes/win/lib/net9.0/System.Security.Cryptography.Pkcs.dll
 /Users/kolose/Development/AvaloniaProjects/ExamProb/AvaloniaApp/AvaloniaApp/bin/Debug/net10.0/runtimes/win/lib/net9.0/System.Windows.Extensions.dll
+/Users/kolose/Development/AvaloniaProjects/ExamProb/AvaloniaApp/AvaloniaApp/bin/Debug/net10.0/Avalonia.Controls.DataGrid.dll

@@ -3,14 +3,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="AvaloniaApp.Pages.ClientPage.ClientUC.CreateRequestUC">
+             x:Class="AvaloniaApp.Pages.ManagerPages.ManagerUC.CreateRequest">
     <Border Background="DarkGray">
         <StackPanel HorizontalAlignment="Center" Spacing="10" Margin="0 20 0 0">
             <TextBlock Text="Регистрация заявки" TextAlignment="Center"></TextBlock>
-        <TextBox x:Name="SerNumber" PlaceholderText="Серийный номер" Width="300"></TextBox>
-        <TextBox x:Name="Description" PlaceholderText="Описание" Width="300"></TextBox>
+            <TextBox x:Name="SerNumber" PlaceholderText="Серийный номер" Width="300"></TextBox>
+            <TextBox x:Name="Description" PlaceholderText="Описание" Width="300"></TextBox>
             <Button Background="Brown" Click="CreateBtn" Content="Создать" Width="300" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Button>
             <TextBlock Text="Тип" VerticalAlignment="Center" />
+            
             <ComboBox x:Name="TypeComboBox">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -18,6 +19,17 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-</StackPanel>
+            
+            <TextBlock Text="Клиент" VerticalAlignment="Center" />
+            <ComboBox x:Name="ClientComboBox">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name }"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            
+        </StackPanel>
     </Border>
 </UserControl>
+

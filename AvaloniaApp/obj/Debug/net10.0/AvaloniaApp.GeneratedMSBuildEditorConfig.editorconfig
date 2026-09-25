@@ -52,6 +52,9 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [/Users/kolose/Development/AvaloniaProjects/ExamProb/AvaloniaApp/AvaloniaApp/Pages/ManagerPages/ManagerPage.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/Users/kolose/Development/AvaloniaProjects/ExamProb/AvaloniaApp/AvaloniaApp/Pages/ManagerPages/ManagerUC/CreateRequest.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/Users/kolose/Development/AvaloniaProjects/ExamProb/AvaloniaApp/AvaloniaApp/Pages/ManagerPages/ManagerUC/RequestUC.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 

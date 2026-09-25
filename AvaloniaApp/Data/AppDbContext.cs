@@ -23,6 +23,8 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Role> Roles { get; set; }
 
+    public virtual DbSet<TypeRequest> TypeRequests { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -48,8 +50,22 @@ public partial class AppDbContext : DbContext
             entity.ToTable("request");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Clientid).HasColumnName("clientid");
             entity.Property(e => e.Description).HasColumnName("description");
+            entity.Property(e => e.Mechaid).HasColumnName("mechaid");
             entity.Property(e => e.SerialNumber).HasColumnName("serial_number");
+
+            entity.HasOne(d => d.Client).WithMany(p => p.RequestClients)
+                .HasForeignKey(d => d.Clientid)
+                .HasConstraintName("request_user_fk");
+
+            entity.HasOne(d => d.Mecha).WithMany(p => p.RequestMechas)
+                .HasForeignKey(d => d.Mechaid)
+                .HasConstraintName("request_user_fk_1");
+
+            entity.HasOne(d => d.TypeNavigation).WithMany(p => p.Requests)
+                .HasForeignKey(d => d.Type)
+                .HasConstraintName("request_type_request_fk");
         });
 
         modelBuilder.Entity<RequestEquipment>(entity =>
@@ -73,6 +89,15 @@ public partial class AppDbContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Name).HasColumnName("name");
+        });
+
+        modelBuilder.Entity<TypeRequest>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("type_request_pk");
+
+            entity.ToTable("type_request");
+
+            entity.Property(e => e.Id).HasColumnName("id");
         });
 
         modelBuilder.Entity<User>(entity =>
