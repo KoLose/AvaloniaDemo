@@ -55,8 +55,17 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [/Users/kolose/Development/AvaloniaProjects/ExamProb/AvaloniaApp/AvaloniaApp/Pages/ManagerPages/ManagerUC/CreateRequest.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/Users/kolose/Development/AvaloniaProjects/ExamProb/AvaloniaApp/AvaloniaApp/Pages/ManagerPages/ManagerUC/EditRequestWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/Users/kolose/Development/AvaloniaProjects/ExamProb/AvaloniaApp/AvaloniaApp/Pages/ManagerPages/ManagerUC/RequestUC.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [/Users/kolose/Development/AvaloniaProjects/ExamProb/AvaloniaApp/AvaloniaApp/Pages/MechaPages/MechaPage.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/kolose/Development/AvaloniaProjects/ExamProb/AvaloniaApp/AvaloniaApp/Pages/MechaPages/MechaUC/RequestUC.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/kolose/Development/AvaloniaProjects/ExamProb/AvaloniaApp/AvaloniaApp/Pages/MechaPages/MechaUC/SelectEquipmentWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

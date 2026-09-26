@@ -40,6 +40,7 @@ public partial class AppDbContext : DbContext
             entity.ToTable("equipment");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Count).HasColumnName("count");
             entity.Property(e => e.Name).HasColumnName("name");
         });
 

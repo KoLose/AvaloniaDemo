@@ -14,11 +14,11 @@ public partial class ManagerPage : Window
 
     private void Get(object? sender, RoutedEventArgs e)
     {
-        MainContent.Content = new CreateRequest();
+        MainContent.Content = new RequestUC();
     }
 
     private void Create(object? sender, RoutedEventArgs e)
     {
-        MainContent.Content = new RequestUC();
+        MainContent.Content = new CreateRequest();
     }
 }

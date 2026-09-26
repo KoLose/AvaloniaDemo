@@ -17,12 +17,15 @@ public partial class CreateRequest : UserControl
     private void LoadData()
     {
         if (App.DbContext == null) return;
-
+        
         var types = App.DbContext.TypeRequests.ToList();
         TypeComboBox.ItemsSource = types;
         if (types.Any()) TypeComboBox.SelectedIndex = 0;
         
-        var clients = App.DbContext.Users.ToList(); 
+        var clients = App.DbContext.Users
+            .Where(u => u.Roleid == 1) 
+            .ToList(); 
+        
         ClientComboBox.ItemsSource = clients;
         if (clients.Any()) ClientComboBox.SelectedIndex = 0;
     }
@@ -55,7 +58,5 @@ public partial class CreateRequest : UserControl
         
         SerNumber.Text = "";
         Description.Text = "";
-        
-        Console.WriteLine("Заявка создана!");
     }
 }

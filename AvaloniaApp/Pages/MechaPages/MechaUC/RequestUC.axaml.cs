@@ -4,32 +4,34 @@ using Avalonia.Input;
 using AvaloniaApp.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace AvaloniaApp.Pages.ManagerPages.ManagerUC;
+namespace AvaloniaApp.Pages.MechaPages.MechaUC;
 
 public partial class RequestUC : UserControl
 {
     public RequestUC()
     {
         InitializeComponent();
-        Load();
+        LoadMyRequests();
     }
 
-    private void Load()
+    private void LoadMyRequests()
     {
-        if (App.DbContext == null) return;
+        if (App.DbContext == null || VariableData.CurrentUser == null) return;
+
         Grid.ItemsSource = App.DbContext.Requests
             .Include(r => r.Client)
-            .Include(r => r.Mecha)
             .Include(r => r.TypeNavigation)
+            .Where(r => r.Mechaid == VariableData.CurrentUser.Id)
             .ToList();
     }
 
     private async void OnDoubleTapped(object? sender, TappedEventArgs e)
     {
         if (Grid.SelectedItem is not Request req) return;
-        var win = new EditRequestWindow(req);
+        
+        var win = new SelectEquipmentWindow(req);
         var parent = TopLevel.GetTopLevel(this) as Window;
         if (parent != null) await win.ShowDialog(parent);
-        Load();
+        
     }
 }

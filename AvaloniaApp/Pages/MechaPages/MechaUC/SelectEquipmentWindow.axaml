@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AvaloniaApp.Pages.MechaPages.MechaUC.SelectEquipmentWindow"
+        Title="Выбор оборудования" Width="500" Height="400" WindowStartupLocation="CenterOwner">
+    <Grid RowDefinitions="*, Auto">
+        <DataGrid x:Name="EquipGrid" 
+                  Margin="10" 
+                  IsReadOnly="False" 
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="*"/>
+                <DataGridTemplateColumn Header="Кол-во" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding Amount, Mode=TwoWay}" 
+                                     Watermark="0" 
+                                     HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button Content="Отмена" Click="CancelBtn" Width="100" Margin="0,0,10,0"/>
+            <Button Content="Сохранить" Click="SaveBtn" Width="100" Background="Green" Foreground="White"/>
+        </StackPanel>
+    </Grid>
+</Window>

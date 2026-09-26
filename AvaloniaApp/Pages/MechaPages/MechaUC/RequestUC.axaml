@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="AvaloniaApp.Pages.ManagerPages.ManagerUC.RequestUC">
+             x:Class="AvaloniaApp.Pages.MechaPages.MechaUC.RequestUC">
     <DataGrid x:Name="Grid" 
               Margin="10" 
               IsReadOnly="True" 
@@ -11,7 +11,6 @@
             <DataGridTextColumn Header="Клиент" Binding="{Binding Client.Login}" Width="120"/>
             <DataGridTextColumn Header="Серийный №" Binding="{Binding SerialNumber}" Width="80"/>
             <DataGridTextColumn Header="Тип" Binding="{Binding TypeNavigation.Name}" Width="120"/>
-            <DataGridTextColumn Header="Механик" Binding="{Binding Mecha.Login}" Width="120"/>
             <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
         </DataGrid.Columns>
     </DataGrid>

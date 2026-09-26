@@ -27,6 +27,5 @@
 
     <ItemGroup>
       <Folder Include="Data\Models\" />
-      <Folder Include="Pages\MechaPages\MechaUC\" />
     </ItemGroup>
 </Project>
