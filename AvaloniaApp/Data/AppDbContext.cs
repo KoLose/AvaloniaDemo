@@ -15,6 +15,8 @@ public partial class AppDbContext : DbContext
     {
     }
 
+    public virtual DbSet<Comment> Comments { get; set; }
+
     public virtual DbSet<Equipment> Equipment { get; set; }
 
     public virtual DbSet<Request> Requests { get; set; }
@@ -22,6 +24,8 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<RequestEquipment> RequestEquipments { get; set; }
 
     public virtual DbSet<Role> Roles { get; set; }
+
+    public virtual DbSet<Stage> Stages { get; set; }
 
     public virtual DbSet<TypeRequest> TypeRequests { get; set; }
 
@@ -33,6 +37,21 @@ public partial class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Comment>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("comment_pk");
+
+            entity.ToTable("Comment");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Name).HasColumnName("name");
+            entity.Property(e => e.Requestid).HasColumnName("requestid");
+
+            entity.HasOne(d => d.Request).WithMany(p => p.Comments)
+                .HasForeignKey(d => d.Requestid)
+                .HasConstraintName("comment_request_fk");
+        });
+
         modelBuilder.Entity<Equipment>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("equipment_pk");
@@ -55,6 +74,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Description).HasColumnName("description");
             entity.Property(e => e.Mechaid).HasColumnName("mechaid");
             entity.Property(e => e.SerialNumber).HasColumnName("serial_number");
+            entity.Property(e => e.Stageid).HasColumnName("stageid");
 
             entity.HasOne(d => d.Client).WithMany(p => p.RequestClients)
                 .HasForeignKey(d => d.Clientid)
@@ -63,6 +83,10 @@ public partial class AppDbContext : DbContext
             entity.HasOne(d => d.Mecha).WithMany(p => p.RequestMechas)
                 .HasForeignKey(d => d.Mechaid)
                 .HasConstraintName("request_user_fk_1");
+
+            entity.HasOne(d => d.Stage).WithMany(p => p.InverseStage)
+                .HasForeignKey(d => d.Stageid)
+                .HasConstraintName("request_request_fk");
 
             entity.HasOne(d => d.TypeNavigation).WithMany(p => p.Requests)
                 .HasForeignKey(d => d.Type)
@@ -87,6 +111,16 @@ public partial class AppDbContext : DbContext
             entity.HasKey(e => e.Id).HasName("role_pk");
 
             entity.ToTable("Role");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Name).HasColumnName("name");
+        });
+
+        modelBuilder.Entity<Stage>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("stage_pk");
+
+            entity.ToTable("stage");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Name).HasColumnName("name");

@@ -12,6 +12,7 @@
             <DataGridTextColumn Header="Серийный №" Binding="{Binding SerialNumber}" Width="80"/>
             <DataGridTextColumn Header="Тип" Binding="{Binding TypeNavigation.Name}" Width="120"/>
             <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
+            <DataGridTextColumn Header="Этап" Binding="{Binding Stage.Name}" Width="100"/>
         </DataGrid.Columns>
     </DataGrid>
 </UserControl>

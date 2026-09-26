@@ -24,7 +24,8 @@
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
             <Button Content="Отмена" Click="CancelBtn" Width="100" Margin="0,0,10,0"/>
-            <Button Content="Сохранить" Click="SaveBtn" Width="100" Background="Green" Foreground="White"/>
+            <Button Content="Сохранить" Click="SaveBtn" Width="100" Background="Green" Foreground="White" Margin="0,0,10,0"/>
+            <Button Content="Завершить" Click="FinishBtn" Width="100" Background="Red" Foreground="White"/>
         </StackPanel>
     </Grid>
 </Window>

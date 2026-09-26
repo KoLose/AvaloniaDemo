@@ -25,10 +25,22 @@ public partial class EditRequestWindow : Window
 
     private void Save(object? sender, RoutedEventArgs e)
     {
-        if (int.TryParse(SerialBox.Text, out int sn)) _req.SerialNumber = sn;
-        if (TypeBox.SelectedItem is TypeRequest t) _req.Type = t.Id;
-        if (MechBox.SelectedItem is User m) _req.Mechaid = m.Id;
-        
+        if (!string.IsNullOrEmpty(SerialBox.Text))
+        {
+            _req.SerialNumber = int.Parse(SerialBox.Text);
+        }
+
+        if (TypeBox.SelectedItem is TypeRequest t)
+        {
+            _req.Type = t.Id;
+        }
+
+        if (MechBox.SelectedItem is User m)
+        {
+            _req.Mechaid = m.Id;
+            _req.Stageid = 2;
+        }
+
         App.DbContext.SaveChanges();
         Close();
     }

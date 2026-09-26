@@ -34,6 +34,7 @@ public partial class SelectEquipmentWindow : Window
         { 
             Id = e.Id, 
             Name = e.Name, 
+            Count = e.Count,
             Amount = 0 
         }).ToList();
 
@@ -43,7 +44,7 @@ public partial class SelectEquipmentWindow : Window
     private void SaveBtn(object? sender, RoutedEventArgs e)
     {
         if (App.DbContext == null) return;
-        
+
         var selected = _allEquip.Where(x => x.Amount > 0).ToList();
 
         foreach (var item in selected)
@@ -54,8 +55,14 @@ public partial class SelectEquipmentWindow : Window
                 Reqid = _request.Id,
                 Eqid = item.Id
             };
-            
             App.DbContext.RequestEquipments.Add(link);
+
+            var equipInDb = App.DbContext.Equipment.Find(item.Id);
+            if (equipInDb != null && equipInDb.Count.HasValue)
+            {
+                equipInDb.Count -= item.Amount;
+                if (equipInDb.Count < 0) equipInDb.Count = 0;
+            }
         }
 
         try 
@@ -65,12 +72,18 @@ public partial class SelectEquipmentWindow : Window
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Ошибка сохранения: {ex.Message}");
+            Console.WriteLine($"Ошибка: {ex.Message}");
         }
     }
 
     private void CancelBtn(object? sender, RoutedEventArgs e)
     {
+        Close();
+    }
+    private void FinishBtn(object? sender, RoutedEventArgs e)
+    {
+        _request.Stageid = 3;
+        App.DbContext.SaveChanges();
         Close();
     }
 }

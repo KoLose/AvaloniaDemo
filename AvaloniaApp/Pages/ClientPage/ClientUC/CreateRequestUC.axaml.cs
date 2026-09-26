@@ -36,13 +36,20 @@ public partial class CreateRequestUC : UserControl
         
         var selectedType = (TypeRequest)TypeComboBox.SelectedItem;
         
+        int? serialNum = null;
+        if (!string.IsNullOrEmpty(SerNumber.Text))
+        {
+            serialNum = int.Parse(SerNumber.Text);
+        }
+        
         var newRequest = new Request
         {
-            SerialNumber = int.TryParse(SerNumber.Text, out var sn) ? sn : null,
+            SerialNumber = serialNum,
             Description = Description.Text,
             Type = selectedType.Id,
             Clientid = VariableData.CurrentUser?.Id,
-            Mechaid = null
+            Mechaid = null,
+            Stageid = 1
         };
         
         App.DbContext.Requests.Add(newRequest);

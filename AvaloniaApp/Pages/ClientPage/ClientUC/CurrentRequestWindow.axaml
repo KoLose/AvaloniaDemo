@@ -1,0 +1,17 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AvaloniaApp.Pages.ClientPage.ClientUC.CurrentRequestWindow"
+        Title="Комментарии к заявке" Width="500" Height="400" WindowStartupLocation="CenterOwner">
+    <Grid RowDefinitions="*, Auto">
+        <ListBox x:Name="CommentsList" Margin="10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Row="1" Content="Закрыть" Click="CloseBtn" Margin="10" HorizontalAlignment="Right"/>
+    </Grid>
+</Window>

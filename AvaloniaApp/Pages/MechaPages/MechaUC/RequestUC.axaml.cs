@@ -21,7 +21,8 @@ public partial class RequestUC : UserControl
         Grid.ItemsSource = App.DbContext.Requests
             .Include(r => r.Client)
             .Include(r => r.TypeNavigation)
-            .Where(r => r.Mechaid == VariableData.CurrentUser.Id)
+            .Include(r => r.Stage)
+            .Where(r => r.Mechaid == VariableData.CurrentUser.Id && r.Stageid != 3)
             .ToList();
     }
 

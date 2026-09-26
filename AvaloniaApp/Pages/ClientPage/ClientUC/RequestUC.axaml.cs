@@ -45,4 +45,17 @@ public partial class RequestUC : UserControl
 
         ItemsGrid.ItemsSource = filtered;
     }
+    private async void ItemsGrid_DoubleTapped(object? sender, TappedEventArgs e)
+    {
+        if (ItemsGrid.SelectedItem is not Request req) return;
+
+        var win = new CurrentRequestWindow(req);
+        var parent = TopLevel.GetTopLevel(this) as Window;
+    
+        if (parent != null)
+        {
+            await win.ShowDialog(parent);
+        }
+    }
+    
 }

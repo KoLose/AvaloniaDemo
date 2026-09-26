@@ -17,9 +17,17 @@ public partial class Request
 
     public long? Mechaid { get; set; }
 
+    public long? Stageid { get; set; }
+
     public virtual User? Client { get; set; }
 
+    public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
+
+    public virtual ICollection<Request> InverseStage { get; set; } = new List<Request>();
+
     public virtual User? Mecha { get; set; }
+
+    public virtual Request? Stage { get; set; }
 
     public virtual TypeRequest? TypeNavigation { get; set; }
 }
