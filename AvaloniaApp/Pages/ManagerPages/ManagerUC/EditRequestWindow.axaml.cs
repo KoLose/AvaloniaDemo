@@ -19,7 +19,7 @@ public partial class EditRequestWindow : Window
         TypeBox.ItemsSource = App.DbContext.TypeRequests.ToList();
         TypeBox.SelectedItem = App.DbContext.TypeRequests.FirstOrDefault(t => t.Id == _req.Type);
         
-        MechBox.ItemsSource = App.DbContext.Users.Where(u => u.Roleid == 2).ToList();
+        MechBox.ItemsSource = App.DbContext.Users.Where(u => u.Roleid == 3).ToList();
         MechBox.SelectedItem = App.DbContext.Users.FirstOrDefault(u => u.Id == _req.Mechaid);
     }
 
